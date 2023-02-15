@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./components/SearchBar";
 import { useFetchWeather } from "./hooks/useFetchWeather";
+import "../index.css";
 
 function App() {
     const [searchInput, setSearchInput] = React.useState("");
@@ -8,22 +9,21 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=37620bae008a876d14f573cd2be1fb54&units=metric`
     );
 
-    console.log(data);
-
     return (
-        <>
-            <div>
+        <main>
+            <section>
                 <SearchBar
                     executeFetch={executeFetch}
                     searchInput={searchInput}
                     setSearchInput={setSearchInput}
                 />
-                <div>
-                    <p>{data.name}</p>
-                    <p>{data?.main?.temp}</p>
-                </div>
-            </div>
-        </>
+            </section>
+            <section>
+                <h1>
+                    {loading ? "loading" : error ? "error occured" : data.name}
+                </h1>
+            </section>
+        </main>
     );
 }
 

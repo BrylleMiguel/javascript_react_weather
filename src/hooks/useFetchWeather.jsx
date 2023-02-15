@@ -13,7 +13,9 @@ export const useFetchWeather = (ENDPOINT) => {
         } catch (E) {
             hasError(E);
         }
+
         setIsLoading(false);
+        hasError(false);
         return [data, isLoading, error];
     }, [ENDPOINT, data, isLoading, error]);
 
