@@ -7,7 +7,6 @@ export default function SearchBar({
 }) {
     return (
         <>
-            <p>{searchInput}</p>
             <form
                 onSubmit={async (e) => {
                     e.preventDefault();
