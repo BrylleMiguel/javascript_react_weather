@@ -6,23 +6,24 @@ export default function SearchBar({
     setSearchInput,
 }) {
     return (
-        <>
-            <form
-                onSubmit={async (e) => {
-                    e.preventDefault();
+        <form
+            onSubmit={async (e) => {
+                e.preventDefault();
 
-                    await executeFetch();
+                await executeFetch();
+            }}
+            className="max-w-xs"
+        >
+            <input
+                type="text"
+                value={searchInput}
+                onChange={({ target: { value } }) => {
+                    setSearchInput(value);
                 }}
-            >
-                <input
-                    type="text"
-                    value={searchInput}
-                    onChange={({ target: { value } }) => {
-                        setSearchInput(value);
-                    }}
-                />
-                <button>search</button>
-            </form>
-        </>
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                required
+            />
+            <button type="submit"></button>
+        </form>
     );
 }

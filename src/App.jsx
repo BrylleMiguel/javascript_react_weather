@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "./components/SearchBar";
 import { useFetchWeather } from "./hooks/useFetchWeather";
 import "../index.css";
+import LocationIcon from "./icons/LocationIcon";
 
 function App() {
     const [searchInput, setSearchInput] = React.useState("");
@@ -10,19 +11,16 @@ function App() {
     );
 
     return (
-        <main>
-            <section>
+        <main className="w-96 mx-auto bg-slate-50 mt-48">
+            <section className="flex justify-start items-center">
+                <LocationIcon />
                 <SearchBar
                     executeFetch={executeFetch}
                     searchInput={searchInput}
                     setSearchInput={setSearchInput}
                 />
             </section>
-            <section>
-                <h1>
-                    {loading ? "loading" : error ? "error occured" : data.name}
-                </h1>
-            </section>
+            <section>details here</section>
         </main>
     );
 }
