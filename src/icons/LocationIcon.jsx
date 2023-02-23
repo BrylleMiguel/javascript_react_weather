@@ -10,6 +10,7 @@ export default function LocationIcon() {
                 strokeWidth={1.5}
                 stroke="currentColor"
                 className="w-6 h-6"
+                color="#999"
             >
                 <path
                     strokeLinecap="round"
